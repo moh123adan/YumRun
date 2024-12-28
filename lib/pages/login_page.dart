@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery_app/components/my_button.dart';
+import 'package:food_delivery_app/components/my_textfield.dart';
 
 class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+  //text editing controller
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+
+  LoginPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +24,7 @@ class LoginPage extends StatelessWidget {
                 color: Theme.of(context).colorScheme.inversePrimary,
               ),
               const SizedBox(height: 25),
-               Text(
+              Text(
                 'Welcome Back!',
                 style: TextStyle(
                   fontSize: 24,
@@ -28,13 +34,32 @@ class LoginPage extends StatelessWidget {
               const SizedBox(height: 25),
 
               //email text field
-               TextField()
+              MyTextfield(
+                controller: emailController,
+                hintText: "Email",
+                obscureText: false,
+              ),
 
-               //password text field
+              const SizedBox(height: 10),
 
-               //sign in button
+              //password text field
+              MyTextfield(
+                controller: passwordController,
+                hintText: "Password",
+                obscureText: true,
+              ),
 
-               //not a member? register now
+              const SizedBox(height: 10),
+
+              //sign in button
+              MyButton(
+                text: "Sign In",
+                onTap: () {},
+              ),
+
+              const SizedBox(height: 10),
+
+              //not a member? register now
             ],
           ),
         ));

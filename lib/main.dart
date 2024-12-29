@@ -1,23 +1,43 @@
-import "package:flutter/material.dart";
-import 'package:food_delivery_app/auth/login_or_register.dart';
-import 'package:food_delivery_app/themes/theme_provider.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter/material.dart';
+import "package:food_delivery_app/pages/login_or_register_page.dart";
 
-void main() {
-  runApp(ChangeNotifierProvider(
-    create: (context) => ThemeProvider(),
-    child: const MyApp(),
-  ));
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key});
 
   @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: const LoginOrRegister(),
-        theme: Provider.of<ThemeProvider>(context).themeData);
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        title: const Text('Food Delivery App'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const LoginOrRegister(),
+                  ),
+                );
+              },
+              child: Icon(
+                Icons.lock_open_rounded,
+                size: 80,
+                color: Theme.of(context).colorScheme.inversePrimary,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }

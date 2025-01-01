@@ -5,13 +5,26 @@ class MyCurrentLocation extends StatelessWidget {
 
   void openLocationSearchBox(BuildContext context) {
     showDialog(
-      context: context,
-      builder: (context) => const AlertDialog(
-          title: Text("Your Location"),
-          content: TextField(
-            decoration: InputDecoration(hintText: "Search address"),
-          )),
-    );
+        context: context,
+        builder: (context) => AlertDialog(
+              title: const Text("Your Location"),
+              content: const TextField(
+                decoration: InputDecoration(hintText: "Search address..."),
+              ),
+              actions: [
+                //cancel button
+                MaterialButton(
+                  onPressed: () => Navigator.pop(context),
+                  child: const Text("Cancel"),
+                ),
+
+                //save button
+                MaterialButton(
+                  onPressed: () => Navigator.pop(context),
+                  child: const Text("Save"),
+                ),
+              ],
+            ));
   }
 
   @override

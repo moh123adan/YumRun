@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:food_delivery_app/auth/login_or_register.dart';
 import 'package:food_delivery_app/components/my_drawer_tile.dart';
 import 'package:food_delivery_app/pages/setting_page.dart';
-import 'package:food_delivery_app/pages/login_or_register_page.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({super.key});
@@ -69,9 +68,7 @@ class MyDrawer extends StatelessWidget {
           MyDrawerTile(
             text: "L O G O U T",
             icon: Icons.logout,
-            onTap: () {
-              // TODO: Implement logout functionality
-            },
+            onTap: () {},
           ),
 
           const SizedBox(height: 25),
